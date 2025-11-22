@@ -31,5 +31,5 @@ variable "etl_job_role_arn" {
 variable "database_name" {
   description = "Name of the Glue Data Catalog database"
   type        = string
-  default     = "finance_db"
+  default     = "spotify_db"
 }
