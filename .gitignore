@@ -5,3 +5,32 @@
 .terraform.lock.hcl
 terraform.tfvars
 *.tfvars
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Data files (large CSV files)
+data/*.csv
+!data/.gitkeep
+
+# AWS
+.aws/
+*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
