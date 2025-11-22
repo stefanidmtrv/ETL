@@ -15,7 +15,7 @@ variable "environment" {
 variable "aws_region" {
   description = "AWS region for resource deployment"
   type        = string
-  default     = "us-east-1"
+  default     = "eu-west-2"
 }
 
 variable "raw_retention_days" {
