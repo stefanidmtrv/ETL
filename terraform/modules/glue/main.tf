@@ -19,7 +19,7 @@ resource "aws_glue_crawler" "raw_zone" {
   description   = "Crawler for raw CSV data in S3"
 
   s3_target {
-    path = "s3://${var.raw_bucket_name}/finance/"
+    path = "s3://${var.raw_bucket_name}/spotify_data/"
   }
 
   schema_change_policy {
@@ -54,7 +54,7 @@ resource "aws_glue_crawler" "curated_zone" {
   description   = "Crawler for curated Parquet data in S3"
 
   s3_target {
-    path = "s3://${var.curated_bucket_name}/finance/"
+    path = "s3://${var.curated_bucket_name}/spotify_data/"
   }
 
   schema_change_policy {
@@ -106,7 +106,7 @@ resource "aws_glue_job" "etl_job" {
     "--spark-event-logs-path"            = "s3://${var.curated_bucket_name}/spark-logs/"
     "--TempDir"                          = "s3://${var.curated_bucket_name}/temp/"
     "--source_database"                  = aws_glue_catalog_database.etl_database.name
-    "--target_path"                      = "s3://${var.curated_bucket_name}/finance/"
+    "--target_path"                      = "s3://${var.curated_bucket_name}/spotify_data/"
   }
 
   execution_property {
