@@ -46,40 +46,6 @@ resource "aws_glue_crawler" "raw_zone" {
   }
 }
 
-# Glue Crawler for Curated Zone (Parquet)
-resource "aws_glue_crawler" "curated_zone" {
-  name          = "${var.project_name}-${var.environment}-curated-crawler"
-  role          = var.crawler_role_arn
-  database_name = aws_glue_catalog_database.etl_database.name
-  description   = "Crawler for curated Parquet data in S3"
-
-  s3_target {
-    path = "s3://${var.curated_bucket_name}/spotify_data/"
-  }
-
-  schema_change_policy {
-    update_behavior = "UPDATE_IN_DATABASE"
-    delete_behavior = "LOG"
-  }
-
-  configuration = jsonencode({
-    Version = 1.0
-    CrawlerOutput = {
-      Partitions = {
-        AddOrUpdateBehavior = "InheritFromTable"
-      }
-    }
-    Grouping = {
-      TableGroupingPolicy = "CombineCompatibleSchemas"
-    }
-  })
-
-  tags = {
-    Name        = "${var.project_name}-${var.environment}-curated-crawler"
-    Environment = var.environment
-    Zone        = "curated"
-  }
-}
 
 # Glue ETL Job
 resource "aws_glue_job" "etl_job" {
