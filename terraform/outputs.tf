@@ -25,11 +25,6 @@ output "glue_crawler_raw_name" {
   value       = module.glue.crawler_raw_name
 }
 
-output "glue_crawler_curated_name" {
-  description = "Name of the Glue crawler for curated data"
-  value       = module.glue.crawler_curated_name
-}
-
 output "glue_etl_job_name" {
   description = "Name of the Glue ETL job"
   value       = module.glue.etl_job_name
