@@ -59,6 +59,7 @@ resource "aws_iam_role_policy" "glue_crawler_policy" {
           "glue:GetPartitions",
           "glue:BatchCreatePartition",
           "glue:BatchDeletePartition",
+          "glue:BatchGetPartition",
           "glue:GetDatabase",
           "glue:GetDatabases"
         ]
