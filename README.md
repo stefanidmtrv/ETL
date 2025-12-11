@@ -1,3 +1,6 @@
+## Architecture
+
+```
 CSV Upload
     ↓
 Raw S3 Bucket (etl-pipeline-dev-raw-zone)
@@ -13,3 +16,4 @@ Curated S3 Bucket (etl-pipeline-dev-curated-zone)
 Athena queries directly from S3
     ↓
 Power BI
+```
